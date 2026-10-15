@@ -1,0 +1,40 @@
+file_path: './data/classification_bonus_practice_data.csv'
+target_column: Survive
+val_test_size: 0.2
+val_size: 0.5
+logreg_param_grid:
+  classifier__C: [0.001, 0.01, 0.1, 1.0, 10, 100, 1000]
+  classifier__penalty: ['l2', None]
+knn_param_grid:
+  classifier__n_neighbors: [3, 5, 7, 9, 11, 15]
+  classifier__weights: ['uniform', 'distance'] 
+dt_param_grid:
+  classifier__max_depth: [3, 5, 7, 10, None]
+  classifier__min_samples_split: [2, 5, 10]
+  classifier__min_samples_leaf: [1, 2, 4]
+cv: 5
+scoring: accuracy
+numerical_features:
+  - Age
+  - Sodium
+  - Creatinine
+  - Platelets
+  - Creatine phosphokinase
+  - Blood Pressure
+  - Hemoglobin
+  - Height
+  - Weight
+nominal_features:
+  - Smoke
+  - Gender
+ordinal_features:
+  - Ejection Fraction
+  - Diabetes
+ejection_fraction_categories:
+  - Low
+  - Normal
+  - High
+diabetes_categories:
+  - Normal
+  - Pre-diabetes
+  - Diabetes
